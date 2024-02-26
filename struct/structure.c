@@ -10,7 +10,7 @@ struct ex1{
 typedef struct ex1 Ex1;
 
 int main(){
-    
+
     printf("%d",sizeof(struct ex1));// sizeof(struct);
     
     struct ex1 var1;
