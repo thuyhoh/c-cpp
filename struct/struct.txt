@@ -82,3 +82,43 @@ byte      0   1   2   3   4   5   6   7
 
 */
 // khi này user_data_name sẽ thay thế cho struct struct_name
+
+
+// nested structure(struct into struct): trong c cho phép struct nằm trong struct khác
+/* Ex
+    struct EX2{
+        int     a; 
+        float   b;
+        
+        struct{
+            uint8_t     x;
+            unit32_t    y;
+        }c;
+        char    d;
+    };
+
+    khi này trong struct Ex2 có 3 biến có kiểu dữ liệu nguyên thủy 1 biến có kiểu dữ liệu do người dùng tự định nghĩa
+*/ 
+
+
+// bit-fields: để tối ưu hóa dung lượng sử dụng của struct
+/* Ex: tạo ra  một struct (elem:a,b,c,d): a cần 3 bit; b cần 4 bit; c cần 10 bit; d cần 7 bit 
+ *  cách thông thường    
+    struct Ex3{
+        uint8_t     a;
+        uint8_t     b;
+        uint16_t    c;
+        uint8_t     d;
+    };
+    khi này sizeof(struct) =  5 byte
+
+ *  sử dụng bit-fields:
+    struct Ex3{
+        uint32_t    a:3;
+        uint32_t    b:4;
+        uint32_t    c:10;
+        uint32_t    d:7;
+    };
+    khi này sizeof(struct) = 4 byte
+
+*/
